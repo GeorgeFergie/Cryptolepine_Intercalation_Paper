@@ -1,5 +1,5 @@
 # Cryptolepine_Intercalation_Paper
-Input and output files used in the Cryptolepine Paper alongside ASE (Python), CP2K and GROMACS .mdp files/scripts
+Output files from the Cryptolepine Paper alongside ASE (Python), CP2K and GROMACS .mdp files/scripts
 
 # CP2K
 Contains an example CP2K optimisation script used for the optimisations performed in the paper.
