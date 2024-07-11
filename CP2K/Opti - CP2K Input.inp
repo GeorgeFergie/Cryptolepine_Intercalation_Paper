@@ -1,0 +1,114 @@
+&GLOBAL
+  PRINT_LEVEL LOW
+  PROJECT CC_BB_Opti                         #Calculation Title
+  RUN_TYPE GEO_OPT              
+&END GLOBAL
+
+&MOTION
+  &GEO_OPT                     
+    MAX_FORCE 2.0E-4
+    MAX_ITER 1000
+    OPTIMIZER BFGS
+    &BFGS
+      TRUST_RADIUS [bohr] 0.1
+    &END
+  &END GEO_OPT
+&END MOTION
+
+&FORCE_EVAL
+  METHOD QS               
+    &DFT
+    CHARGE -3                                 #Correct for 2 base pairs + backbone + cryptolepine
+    MULTIPLICITY 1
+    BASIS_SET_FILE_NAME  BASIS_MOLOPT
+    BASIS_SET_FILE_NAME  ALL_BASIS_SETS
+    POTENTIAL_FILE_NAME  POTENTIAL
+    &MGRID                        
+      #NGRIDS 2
+      CUTOFF 1300
+      REL_CUTOFF 90
+      COMMENSURATE
+    &END MGRID
+    &SCF                          
+      SCF_GUESS ATOMIC
+      EPS_SCF 5.0E-8
+      MAX_SCF 50
+      &OT  T
+        MINIMIZER  DIIS
+        STEPSIZE   0.15
+        PRECONDITIONER FULL_ALL
+      &END OT
+      &OUTER_SCF  T
+        MAX_SCF 40
+        EPS_SCF 5.0E-8             
+      &END OUTER_SCF
+    &END SCF
+    &XC
+      DENSITY_CUTOFF     1.0E-8    
+      GRADIENT_CUTOFF    1.0E-8
+      TAU_CUTOFF         1.0E-8
+      &XC_FUNCTIONAL BLYP
+      &END XC_FUNCTIONAL
+      &VDW_POTENTIAL
+        POTENTIAL_TYPE PAIR_POTENTIAL
+        &PAIR_POTENTIAL
+          REFERENCE_FUNCTIONAL BLYP
+          PARAMETER_FILE_NAME dftd3.dat
+          VERBOSE_OUTPUT
+        &END PAIR_POTENTIAL
+      &END VDW_POTENTIAL
+    &END XC
+    &POISSON
+      &IMPLICIT
+        BOUNDARY_CONDITIONS PERIODIC
+        MAX_ITER 30
+        &DIELECTRIC
+          DIELECTRIC_CONSTANT 80
+        &END DIELECTRIC
+      &END IMPLICIT
+    PERIODIC XYZ
+    &END POISSON
+  &END DFT
+
+  &SUBSYS
+    &CELL
+      A 30.000 0.000 0.000
+      B 0.000 30.000 0.000
+      C 0.000 0.000 30.000
+      PERIODIC XYZ
+    &END CELL
+    &TOPOLOGY
+      COORD_FILE_NAME CC_Input.xyz                     #Input Geometry  
+      COORD_FILE_FORMAT XYZ                            #Change depending on input file type
+      CONNECTIVITY OFF
+    &END TOPOLOGY
+    &KIND H  
+      ELEMENT H                                                  
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-BLYP
+    &END KIND
+    &KIND C  
+      ELEMENT C  
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-BLYP
+    &END KIND
+    &KIND N  
+      ELEMENT N  
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-BLYP
+    &END KIND
+    &KIND O  
+      ELEMENT O  
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-BLYP
+    &END KIND
+    &KIND P  
+      ELEMENT P  
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-BLYP
+    &END KIND
+    &KIND X
+      ELEMENT H
+    &END KIND
+  &END SUBSYS
+&END FORCE_EVAL
