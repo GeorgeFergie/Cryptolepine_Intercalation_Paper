@@ -7,6 +7,9 @@ Contains an example CP2K optimisation script used for the optimisations performe
 # MD
 Cotains ten .mdp files: four used in the RMSD calculations performed in the paper: Min_Energy, Equil_Temperature and Equil_Pressure were used to prepare the system before MD.mdp was used to run and produce the results. Four, labled with the ending '_FEP' were used to run the FEP calculations. Two are used in the Umbrella Sampling Calculation, 'US' and 'MD_Steered', used to run the Umbrella sampling and Steered MD respectfully.
 
+# MD Structures
+Contains two folders; FEP and RMSD+US. These are the input structures for the respective calculations. FEP contains a salt concentration and was based on the RMSD+US structures. 
+
 # NEB
 Contains the final output geometries of all the NEB calculations performed in the paper.
 
