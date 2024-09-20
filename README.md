@@ -5,7 +5,7 @@ Output files from the Cryptolepine Paper alongside ASE (Python), CP2K and GROMAC
 Contains an example CP2K optimisation script used for the optimisations performed in the paper.
 
 # MD
-Cotains four .mdp files used in the RMSD calculations performed in the paper: Min_Energy, Equil_Temperature and Equil_Pressure were used to prepare the system before MD.mdp was used to run and produce the results.
+Cotains eight .mdp files: four used in the RMSD calculations performed in the paper: Min_Energy, Equil_Temperature and Equil_Pressure were used to prepare the system before MD.mdp was used to run and produce the results. Four, labled with the ending '_FEP' were used to run the FEP calculations.
 
 # NEB
 Contains the final output geometries of all the NEB calculations performed in the paper.
