@@ -5,7 +5,9 @@ Output files from the Cryptolepine Paper alongside ASE (Python), CP2K and GROMAC
 Contains an example CP2K optimisation script used for the optimisations performed in the paper.
 
 # MD
-Cotains ten .mdp files: four used in the RMSD calculations performed in the paper: Min_Energy, Equil_Temperature and Equil_Pressure were used to prepare the system before MD.mdp was used to run and produce the results. Four, labled with the ending '_FEP' were used to run the FEP calculations. Two are used in the Umbrella Sampling Calculation, 'US' and 'MD_Steered', used to run the Umbrella sampling and Steered MD respectfully. These are scripts for their specific structure and different structures contained minor changes in the .mdp files
+Cotains ten .mdp files: four used in the RMSD calculations performed in the paper: Min_Energy, Equil_Temperature and Equil_Pressure were used to prepare the system before MD.mdp was used to run and produce the results. Four, labled with the ending '_FEP' were used to run the FEP calculations. Two are used in the Umbrella Sampling Calculation, 'US' and 'MD_Steered', used to run the Umbrella sampling and Steered MD respectfully. These are scripts for their specific structure and different structures contained minor changes in the .mdp files. 
+
+Finally it contains two forcefield files: "CRYC.itp" and "charmm36.itp". These are used to provide the MD parameters for Cryptolepine in our MD simulations.
 
 # MD Structures
 Contains two folders; FEP and RMSD+US. These are the input structures for the respective calculations. FEP contains a salt concentration and was based on the RMSD+US structures. 
