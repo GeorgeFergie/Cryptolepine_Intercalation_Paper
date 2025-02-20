@@ -9,7 +9,7 @@ Finally it contains two forcefield files: "CRYC.itp" and "charmm36.itp". These a
 # MD Structures
 Contains two folders; FEP and RMSD+US. These are the input structures for the respective calculations. FEP contains a salt concentration and was based on the RMSD+US structures. 
 
-# Optimisation
+# Optimisation - Ring Model
 Contains the final output geometries of all NWChem optimsation calculations ran on a ring model of DNA. 
 
 # Python
