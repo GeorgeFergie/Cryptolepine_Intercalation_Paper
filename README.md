@@ -16,4 +16,4 @@ Contains the final output geometries of all NWChem optimsation calculations ran 
 Contains Thermo_Calc which is how we predicted the occupation of states via the Boltzmann Probability distribution as well as an input script example used to run NWChem via ASE for our optimisations. The NWChem script is set up to run the CC system.
 
 # Qchem
-Contains an example input script we used to run the Energy Decomposition Analysis (EDA) calculation via Qchem. The example in the script is for CC.
+Contains an example input script we used to run the Energy Decomposition Analysis (EDA) calculation via Qchem. The example in the script is for CC. In addition, it contains the output files of all EDA calculations for all structures as well as the calculation ran for AA using 6-31+G**
